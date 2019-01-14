@@ -33,7 +33,7 @@ pipeline {
       steps {
         deleteDir()
         checkout scm
-        sh "echo 'Run Static Code Analysis'"
+        bat "echo 'Run Static Code Analysis'"
       }
     }
 
@@ -45,7 +45,7 @@ pipeline {
       steps {
         deleteDir()
         checkout scm
-        sh "echo 'Run Unit Tests'"
+        bat "echo 'Run Unit Tests'"
       }
     }
 
@@ -57,18 +57,18 @@ pipeline {
       steps {
         deleteDir()
         checkout scm
-        sh "echo 'Run Acceptance Tests'"
+        bat "echo 'Run Acceptance Tests'"
       }
     }
 
   }
   post {
     success {
-      sh "echo 'Send mail on success'"
+      bat "echo 'Send mail on success'"
       // mail to:"me@example.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Yay, we passed."
     }
     failure {
-      sh "echo 'Send mail on failure'"
+      bat "echo 'Send mail on failure'"
       // mail to:"me@example.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Boo, we failed."
     }
   }
